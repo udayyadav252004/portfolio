@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 type GlowButtonProps = {
   href: string;
@@ -19,8 +19,9 @@ export function GlowButton({ href, label, variant = "primary" }: GlowButtonProps
     <Link href={href} className={`${baseClass} ${variantClass}`}>
       {label}
       <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">
-        ->
+        -&gt;
       </span>
     </Link>
   );
 }
+
