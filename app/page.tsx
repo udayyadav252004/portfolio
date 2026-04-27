@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AboutSection } from "@/components/AboutSection";
+import { ChatWidget } from "@/components/ChatWidget";
 import { ContactSection } from "@/components/ContactSection";
 import { HeroSection } from "@/components/HeroSection";
 import { IntroOverlay } from "@/components/IntroOverlay";
@@ -106,6 +107,8 @@ export default function HomePage() {
         <footer className="section-shell pb-10 text-center text-xs uppercase tracking-[0.2em] text-slate-300/50">
           Uday Yadav - Crafted with code, curiosity, and intelligence
         </footer>
+
+        <ChatWidget />
       </div>
     </main>
   );
