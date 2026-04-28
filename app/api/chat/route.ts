@@ -3,6 +3,7 @@ import {
   buildSystemPrompt,
   getLocalAssistantReply,
   trimConversation,
+  unknownAssistantMessage,
   type PortfolioChatMessage
 } from "@/lib/portfolioAssistant";
 
@@ -116,7 +117,7 @@ export async function POST(request: Request) {
 
     if (providers.length === 0) {
       return NextResponse.json({
-        message: getLocalAssistantReply(latestUserMessage.content),
+        message: getLocalAssistantReply(latestUserMessage.content, messages),
         source: "local"
       });
     }
@@ -134,9 +135,9 @@ export async function POST(request: Request) {
       }
     }
 
-    const localReply = getLocalAssistantReply(latestUserMessage.content);
+    const localReply = getLocalAssistantReply(latestUserMessage.content, messages);
 
-    if (localReply !== "I don't have that information yet.") {
+    if (localReply !== unknownAssistantMessage) {
       return NextResponse.json({
         message: localReply,
         source: "local-fallback"
